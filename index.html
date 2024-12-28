@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio - Ibrahim Sidat</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #121212;
+            color: #f4f4f4;
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        header {
+            background: linear-gradient(135deg, #ff007a, #ffa500);
+            color: #fff;
+            padding: 3rem 1rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            animation: fadeInHeader 1.5s ease-out;
+        }
+
+        header h1 {
+            margin: 0;
+            animation: fadeSlide 1.5s ease;
+        }
+
+        nav {
+            text-align: center;
+            padding: 1rem;
+            background-color: #1a1a1a;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 15px;
+            position: relative;
+        }
+
+        nav a::after {
+            content: '';
+            display: block;
+            width: 0;
+            height: 2px;
+            background: #ff007a;
+            transition: width 0.3s;
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        .section {
+            max-width: 900px;
+            margin: 2rem auto;
+            background: #1a1a1a;
+            padding: 2rem;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+            border-radius: 10px;
+            transform: scale(0.95);
+            transition: transform 0.5s ease, background 1s;
+            opacity: 0;
+            animation: fadeIn 1s ease-out forwards;
+        }
+
+        .section:hover {
+            transform: scale(1);
+            background: linear-gradient(135deg, #1a1a1a, #ff007a);
+        }
+
+        .section h2 {
+            color: #ffa500;
+            margin-top: 0;
+        }
+
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            overflow: hidden;
+        }
+
+        .gallery video {
+            width: calc(33% - 10px);
+            border-radius: 10px;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .gallery video:hover {
+            transform: scale(1.1);
+            box-shadow: 0 5px 15px rgba(255, 0, 122, 0.5);
+        }
+
+        footer {
+            text-align: center;
+            padding: 1rem;
+            background-color: #1a1a1a;
+            color: #fff;
+            margin-top: 2rem;
+        }
+
+        footer p {
+            margin: 0;
+        }
+
+        @keyframes fadeSlide {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInHeader {
+            from {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media screen and (max-width: 768px) {
+            .gallery video {
+                width: calc(50% - 10px);
+            }
+
+            nav a {
+                display: block;
+                margin: 10px 0;
+            }
+
+            header h1 {
+                font-size: 1.8rem;
+            }
+
+            .section {
+                margin: 1rem;
+                padding: 1.5rem;
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            header h1 {
+                font-size: 1.5rem;
+            }
+
+            .gallery video {
+                width: 100%;
+            }
+        }
+
+        .hidden-content {
+            display: none;
+        }
+
+        #dots {
+            color: #ff007a;
+        }
+
+        button {
+            background-color: #ff007a;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 1rem;
+            transition: background 0.3s;
+        }
+
+        button:hover {
+            background-color: #ffa500;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>MY Portfolio </h1>
+    </header>
+
+    <nav>
+        <a href="#about">About</a>
+        <a href="#work">Work</a>
+        <a href="#contact">Contact</a>
+    </nav>
+
+    <section id="about" class="section">
+        <h2>About Me</h2>
+        <p>Hello! My name is Ibrahim Sidat, and I am a passionate video editor and graphic designer. I have a strong interest in creating engaging visual content and continuously strive to improve my skills. 
+            <span id="dots">...</span><span id="more" class="hidden-content">I am skilled in various tools such as Adobe Photoshop, Premiere Pro, and After Effects. My goal is to work on projects that challenge my creativity and help businesses communicate effectively through visuals.</span>
+        </p>
+        <button onclick="redirectToAboutPage()" id="readMoreBtn">Read More</button>
+    </section>
+
+    <section id="work" class="section">
+        <h2>My Projects</h2>
+        <div class="gallery">
+            <video src="vid1.mp4" controls></video>
+            <video src="vid2.mp4" controls></video>
+            <video src="vid3.mp4" controls></video>
+            <video src="vid4.mp4" controls></video>
+            <video src="vid5.mp4" controls></video>
+            <video src="vid6.mp4" controls></video>
+            <video src="vid7.mp4" controls></video>
+            <video src="vid8.mp4" controls></video>
+        </div>
+    </section>
+
+    <section id="contact" class="section">
+        <h2>Contact</h2>
+        <p>Phone: +91 9662150872</p>
+        <p>Email: <a href="mailto:isidat995@gmail.com">isidat995@gmail.com</a></p>
+        <p>Address: Harangam, Rankuva, Gujarat, 3965609</p>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Ibrahim Sidat. Designed with ❤️</p>
+    </footer>
+
+    <script>
+        function redirectToAboutPage() {
+            window.location.href = "about.html"; // Redirect to about.html when button is clicked
+        }
+    </script>
+</body>
+</html>
